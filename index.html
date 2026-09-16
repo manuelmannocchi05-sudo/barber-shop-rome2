@@ -2,82 +2,36 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Barber Shop Rome — Il tuo stile. La nostra firma.</title>
-<meta name="description" content="Barber Shop Rome — Taglio, barba e styling nel cuore di Roma. Prenota il tuo appuntamento.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Barber Shop Rome — Taglio, barba e styling nel cuore di Roma.">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#0b0b0b;color:#f3eee5;font-family:Inter,Arial,sans-serif;line-height:1.6}
 a{text-decoration:none;color:inherit}
-img{display:block;width:100%;height:100%;object-fit:cover}
 button{font:inherit}
-
-:root{
---bg:#0b0b0b;
---panel:#121212;
---cream:#f3eee5;
---muted:#a8a197;
---gold:#c8a96a;
---line:#292724;
-}
+:root{--bg:#0b0b0b;--panel:#121212;--cream:#f3eee5;--muted:#aaa39a;--gold:#c8a96a;--line:#292724}
 
 .container{width:min(1160px,92%);margin:auto}
 
-header{
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:50;
-background:rgba(11,11,11,.88);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,.06)
-}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(11,11,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid #222}
 
-.nav{
-height:78px;
-display:flex;
-align-items:center;
-justify-content:space-between
-}
-
-.logo{
-font-family:"Cormorant Garamond",serif;
-font-size:29px;
-font-weight:600;
-letter-spacing:.05em
-}
-
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:600 30px "Cormorant Garamond",serif;letter-spacing:.04em}
 .logo span{color:var(--gold)}
 
-nav{
-display:flex;
-gap:30px;
-align-items:center
-}
-
-nav a{
-font-size:13px;
-color:#d9d2c8;
-transition:.25s
-}
-
+nav{display:flex;gap:28px}
+nav a{font-size:12px;color:#d6d0c8}
 nav a:hover{color:var(--gold)}
 
-.nav-cta{
-border:1px solid var(--gold);
-padding:11px 18px;
-color:var(--cream);
-font-size:12px;
-letter-spacing:.08em;
-text-transform:uppercase
-}
+.navbtn,.btn{border:1px solid var(--gold);padding:13px 21px;background:transparent;color:var(--cream);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.navbtn{padding:10px 16px}
+.btn.gold{background:var(--gold);color:#111}
+.btn:hover{transform:translateY(-2px)}
 
 .hero{
 min-height:100vh;
@@ -86,439 +40,183 @@ align-items:center;
 position:relative;
 overflow:hidden;
 background:
-linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.42)),
-url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=2000&q=90") center/cover
+radial-gradient(circle at 75% 45%,rgba(200,169,106,.20),transparent 28%),
+linear-gradient(110deg,#080808 0%,#101010 55%,#17130d 100%);
 }
 
-.hero-content{padding-top:80px;max-width:760px}
-
-.kicker{
-color:var(--gold);
-font-size:12px;
-letter-spacing:.22em;
-text-transform:uppercase;
-margin-bottom:20px
+.hero:after{
+content:"";
+position:absolute;
+right:-120px;
+top:18%;
+width:520px;
+height:520px;
+border:1px solid rgba(200,169,106,.25);
+border-radius:50%;
+box-shadow:0 0 0 70px rgba(200,169,106,.025),0 0 0 140px rgba(200,169,106,.018);
 }
 
-h1{
-font-family:"Cormorant Garamond",serif;
-font-size:clamp(58px,8vw,105px);
-font-weight:500;
-line-height:.9;
-letter-spacing:-.04em;
-margin-bottom:30px
+.hero-content{position:relative;z-index:2;padding-top:80px;max-width:760px}
+.kicker,.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.kicker{margin-bottom:20px}
+
+h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}
+h1{font-size:clamp(60px,8vw,108px);line-height:.87;letter-spacing:-.04em;margin-bottom:30px}
+.hero p{max-width:560px;color:#bbb4aa;font-size:16px;margin-bottom:34px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+
+section{padding:105px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
+h2{font-size:clamp(43px,6vw,70px);line-height:.92}
+.section-head p{max-width:420px;color:var(--muted);font-size:13px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
+.stat{text-align:center;padding:32px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat strong{display:block;font:500 45px "Cormorant Garamond",serif}
+.stat span{font-size:10px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+
+.services,.reviews{background:#101010}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#141414;border:1px solid var(--line);padding:30px;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:#75633f}
+.card-num{color:var(--gold);font-size:11px;margin-bottom:45px}
+.card h3{font-size:32px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:13px;min-height:60px}
+.price{color:var(--gold);font-size:23px;margin-top:23px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-art{
+height:570px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(circle at 65% 35%,rgba(200,169,106,.42),transparent 13%),
+linear-gradient(145deg,#27231d,#0c0c0c 60%,#1d1811);
 }
-
-.hero p{
-max-width:560px;
-font-size:17px;
-color:#c5beb4;
-margin-bottom:36px
+.about-art:before{
+content:"";
+position:absolute;
+width:280px;height:280px;
+border:1px solid rgba(200,169,106,.45);
+border-radius:50%;
+left:50%;top:50%;transform:translate(-50%,-50%);
 }
-
-.buttons{display:flex;gap:14px;flex-wrap:wrap}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:15px 25px;
-border:1px solid var(--gold);
-font-size:12px;
+.about-art:after{
+content:"BARBER ROME";
+position:absolute;
+left:35px;bottom:30px;
+font:500 25px "Cormorant Garamond",serif;
 letter-spacing:.1em;
-text-transform:uppercase;
-transition:.3s;
-cursor:pointer
+color:#eee6d8;
 }
-
-.btn-primary{background:var(--gold);color:#0b0b0b}
-.btn-primary:hover{background:#dfc487}
-.btn-outline{color:var(--cream)}
-.btn-outline:hover{background:#fff;color:#111}
-
-section{padding:110px 0}
-
-.section-head{
-display:flex;
-justify-content:space-between;
-gap:30px;
-align-items:end;
-margin-bottom:55px
-}
-
-.eyebrow{
-color:var(--gold);
-font-size:11px;
-letter-spacing:.2em;
-text-transform:uppercase;
-margin-bottom:12px
-}
-
-h2{
-font-family:"Cormorant Garamond",serif;
-font-size:clamp(42px,6vw,70px);
-font-weight:500;
-line-height:.95
-}
-
-.section-head p{
-max-width:420px;
-color:var(--muted);
-font-size:14px
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line)
-}
-
-.stat{
-padding:35px 20px;
-text-align:center;
-border-right:1px solid var(--line)
-}
-
-.stat:last-child{border-right:0}
-
-.stat strong{
-font-family:"Cormorant Garamond",serif;
-font-size:45px;
-font-weight:500;
-display:block;
-color:var(--cream)
-}
-
-.stat span{
-font-size:11px;
-letter-spacing:.14em;
-text-transform:uppercase;
-color:var(--muted)
-}
-
-.services{
-background:#101010
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px
-}
-
-.card{
-background:var(--panel);
-border:1px solid var(--line);
-padding:32px;
-transition:.3s
-}
-
-.card:hover{
-transform:translateY(-5px);
-border-color:#67583b
-}
-
-.card-number{
-color:var(--gold);
-font-size:12px;
-margin-bottom:50px
-}
-
-.card h3{
-font-family:"Cormorant Garamond",serif;
-font-size:31px;
-font-weight:500;
-margin-bottom:8px
-}
-
-.card p{
-color:var(--muted);
-font-size:13px;
-min-height:60px
-}
-
-.price{
-font-size:24px;
-margin-top:25px;
-color:var(--gold)
-}
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center
-}
-
-.about-image{
-height:590px;
-overflow:hidden
-}
-
-.about-copy p{
-color:var(--muted);
-margin:25px 0 35px;
-max-width:510px
-}
-
-.values{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px
-}
-
-.value{
-border-top:1px solid var(--line);
-padding-top:18px
-}
-
-.value strong{
-display:block;
-font-size:13px;
-margin-bottom:5px
-}
-
-.value span{
-font-size:12px;
-color:var(--muted)
-}
+.about-copy p{color:var(--muted);margin:25px 0 32px;max-width:520px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.value{border-top:1px solid var(--line);padding-top:15px}
+.value strong{display:block;font-size:12px}
+.value span{font-size:11px;color:var(--muted)}
 
 .gallerygrid{
 display:grid;
 grid-template-columns:1.2fr .8fr;
-grid-template-rows:300px 300px;
-gap:12px
+grid-template-rows:290px 290px;
+gap:12px;
 }
 
-.g{
-overflow:hidden;
-background:#161616
-}
-
-.g img{
-transition:transform .6s
-}
-
-.g:hover img{transform:scale(1.04)}
-
+.g{position:relative;overflow:hidden;background:#151515;border:1px solid #24211d}
 .g1{grid-row:span 2}
-
 .g4{grid-column:2}
 
-.reviews{
-background:#101010
-}
-
-.review-wrap{
-max-width:850px;
-margin:auto;
-text-align:center
-}
-
-.quote{
-font-family:"Cormorant Garamond",serif;
-font-size:42px;
-line-height:1.15;
-font-style:italic;
-margin-bottom:25px
-}
-
-.review-name{
-color:var(--gold);
-font-size:12px;
-letter-spacing:.14em;
-text-transform:uppercase
-}
-
-.cta{
-padding:100px 0;
-text-align:center;
-background:
-linear-gradient(rgba(11,11,11,.75),rgba(11,11,11,.9)),
-url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1800&q=90") center/cover
-}
-
-.cta h2{margin-bottom:25px}
-
-.cta p{
-color:#c1bbb2;
-max-width:540px;
-margin:0 auto 30px
-}
-
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px
-}
-
-.contact-list{
-display:grid;
-gap:22px
-}
-
-.contact-item{
-border-bottom:1px solid var(--line);
-padding-bottom:18px
-}
-
-.contact-item span{
-display:block;
-font-size:10px;
-text-transform:uppercase;
-letter-spacing:.16em;
-color:var(--gold);
-margin-bottom:5px
-}
-
-.contact-item strong{
-font-weight:500;
-font-size:14px
-}
-
-.map{
-min-height:400px;
-border:1px solid var(--line)
-}
-
-.map iframe{
-width:100%;
+.gallery-art{
 height:100%;
-min-height:400px;
-border:0;
-filter:grayscale(1)
-}
-
-footer{
-border-top:1px solid var(--line);
-padding:35px 0;
-color:#817a72;
-font-size:11px
-}
-
-.footer-inner{
+position:relative;
 display:flex;
-justify-content:space-between;
-gap:20px
+flex-direction:column;
+justify-content:flex-end;
+padding:30px;
+overflow:hidden;
+transition:.5s;
 }
 
-.whatsapp{
-position:fixed;
-right:22px;
-bottom:22px;
-width:56px;
-height:56px;
-border-radius:50%;
-background:#25D366;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:700;
-font-size:14px;
-z-index:60;
-box-shadow:0 10px 30px rgba(0,0,0,.35)
-}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.8);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:100;
-padding:20px
-}
-
-.modal.active{display:flex}
-
-.modal-box{
-width:min(500px,100%);
-background:#151515;
-border:1px solid #38332d;
-padding:35px;
-position:relative
-}
-
-.modal-box h3{
-font-family:"Cormorant Garamond",serif;
-font-size:40px;
-font-weight:500;
-margin-bottom:20px
-}
-
-.close{
+.gallery-art:before{
+content:"";
 position:absolute;
-top:14px;
-right:18px;
-background:none;
-border:0;
-color:#aaa;
-font-size:25px;
-cursor:pointer
+width:280px;height:280px;
+border-radius:50%;
+border:1px solid rgba(200,169,106,.4);
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+transition:.6s;
 }
 
-form{display:grid;gap:14px}
-
-input,select{
-width:100%;
-background:#0d0d0d;
-border:1px solid #302d29;
-padding:14px;
-color:white;
-outline:none
+.gallery-art:after{
+content:"";
+position:absolute;
+width:120px;height:120px;
+border-radius:50%;
+background:rgba(200,169,106,.10);
+top:50%;left:50%;
+transform:translate(-50%,-50%);
 }
 
-input:focus,select:focus{border-color:var(--gold)}
+.gallery-art:hover:before{transform:translate(-50%,-50%) scale(1.12)}
+.gallery-art:hover{transform:scale(1.015)}
+
+.art-1{background:linear-gradient(145deg,#29241b,#0a0a0a 65%)}
+.art-2{background:linear-gradient(135deg,#171717,#30271a)}
+.art-3{background:linear-gradient(145deg,#0b0b0b,#24201a)}
+.art-4{background:linear-gradient(135deg,#30291f,#101010)}
+
+.gallery-art span,.gallery-art strong,.gallery-art small{position:relative;z-index:2}
+.gallery-art span{font-size:10px;letter-spacing:.25em;color:var(--gold)}
+.gallery-art strong{font:500 48px "Cormorant Garamond",serif;line-height:1}
+.gallery-art small{font-size:9px;color:#aaa49a;letter-spacing:.12em;margin-top:7px}
+
+.review{text-align:center;max-width:850px;margin:auto}
+.quote{font:italic 42px/1.12 "Cormorant Garamond",serif;margin-bottom:22px}
+.name{color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+
+.cta{text-align:center;background:linear-gradient(135deg,#16130f,#0b0b0b)}
+.cta h2{margin:15px 0 22px}
+.cta p{max-width:520px;margin:0 auto 28px;color:var(--muted);font-size:13px}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.contact-list{display:grid;gap:22px}
+.contact-item{border-bottom:1px solid var(--line);padding-bottom:17px}
+.contact-item span{display:block;color:var(--gold);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px}
+.contact-item strong{font-size:13px;font-weight:500}
+.map{min-height:390px;border:1px solid var(--line);background:linear-gradient(135deg,#181818,#0d0d0d);display:flex;align-items:center;justify-content:center;text-align:center}
+.map div{padding:30px}
+.map strong{display:block;font:500 35px "Cormorant Garamond",serif;margin-bottom:7px}
+.map span{color:var(--muted);font-size:11px}
+
+footer{border-top:1px solid var(--line);padding:30px 0;color:#77716a;font-size:10px}
+.footer{display:flex;justify-content:space-between}
+
+.whatsapp{position:fixed;right:20px;bottom:20px;width:55px;height:55px;border-radius:50%;background:#25d366;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;z-index:30;box-shadow:0 10px 30px #0008}
+
+.modal{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.active{display:flex}
+.modal-box{position:relative;width:min(500px,100%);background:#151515;border:1px solid #37322b;padding:35px}
+.close{position:absolute;right:15px;top:10px;background:none;border:0;color:#aaa;font-size:27px;cursor:pointer}
+.modal-box h3{font-size:40px;margin:12px 0 22px}
+form{display:grid;gap:12px}
+input,select{width:100%;background:#0c0c0c;color:white;border:1px solid #302d29;padding:13px;outline:none}
 
 @media(max-width:800px){
 nav{display:none}
-
-.nav-cta{display:block}
-
-.hero{min-height:88vh}
-
-section{padding:80px 0}
-
-.section-head,
-.about-grid,
-.contact-grid{
-grid-template-columns:1fr;
-display:grid
-}
-
-.service-grid{grid-template-columns:1fr}
-
-.stats{grid-template-columns:1fr}
-
-.stat{
-border-right:0;
-border-bottom:1px solid var(--line)
-}
-
+section{padding:75px 0}
+.section-head,.about,.contact{display:grid;grid-template-columns:1fr}
+.stats,.service-grid{grid-template-columns:1fr}
+.stat{border-right:0;border-bottom:1px solid var(--line)}
 .stat:last-child{border-bottom:0}
-
-.about-image{height:420px}
-
+.about-art{height:400px}
 .values{grid-template-columns:1fr}
-
-.gallerygrid{
-grid-template-columns:1fr;
-grid-template-rows:420px 250px 250px 250px
-}
-
-.g1{grid-row:auto}
-.g4{grid-column:auto}
-
+.gallerygrid{grid-template-columns:1fr;grid-template-rows:420px 240px 240px 240px}
+.g1{grid-row:auto}.g4{grid-column:auto}
 .quote{font-size:32px}
-
-.map{min-height:300px}
-
-.footer-inner{
-flex-direction:column
-}
+.map{min-height:280px}
+.footer{flex-direction:column;gap:8px}
 }
 </style>
 </head>
@@ -528,7 +226,6 @@ flex-direction:column
 <header>
 <div class="container nav">
 <a href="#" class="logo">BARBER <span>ROME</span></a>
-
 <nav>
 <a href="#servizi">Servizi</a>
 <a href="#chi-siamo">Chi siamo</a>
@@ -536,25 +233,18 @@ flex-direction:column
 <a href="#recensioni">Recensioni</a>
 <a href="#contatti">Contatti</a>
 </nav>
-
-<button class="nav-cta" onclick="openModal()">Prenota ora</button>
+<button class="navbtn" onclick="openModal()">Prenota ora</button>
 </div>
 </header>
-
-<main>
 
 <section class="hero">
 <div class="container hero-content">
 <div class="kicker">Barber shop · Roma</div>
 <h1>Il tuo stile.<br>La nostra firma.</h1>
-<p>
-Tagli, barba e styling pensati per valorizzare il tuo stile.
-Un'esperienza barber premium, nel cuore di Roma.
-</p>
-
+<p>Tagli, barba e styling pensati per valorizzare il tuo stile. Un'esperienza barber premium nel cuore di Roma.</p>
 <div class="buttons">
-<button class="btn btn-primary" onclick="openModal()">Prenota appuntamento</button>
-<a class="btn btn-outline" href="#servizi">Scopri i servizi</a>
+<button class="btn gold" onclick="openModal()">Prenota appuntamento</button>
+<a class="btn" href="#servizi">Scopri i servizi</a>
 </div>
 </div>
 </section>
@@ -562,158 +252,69 @@ Un'esperienza barber premium, nel cuore di Roma.
 <section>
 <div class="container">
 <div class="stats">
-<div class="stat">
-<strong>10+</strong>
-<span>Anni di esperienza</span>
-</div>
-<div class="stat">
-<strong>3</strong>
-<span>Specialità barber</span>
-</div>
-<div class="stat">
-<strong>100%</strong>
-<span>Dedizione al dettaglio</span>
-</div>
+<div class="stat"><strong>10+</strong><span>Anni di esperienza</span></div>
+<div class="stat"><strong>3</strong><span>Specialità barber</span></div>
+<div class="stat"><strong>100%</strong><span>Dedizione al dettaglio</span></div>
 </div>
 </div>
 </section>
 
 <section class="services" id="servizi">
 <div class="container">
-
 <div class="section-head">
-<div>
-<div class="eyebrow">I nostri servizi</div>
-<h2>Precisione.<br>Stile. Personalità.</h2>
-</div>
-
-<p>
-Ogni servizio nasce dall'incontro tra tecnica, attenzione al dettaglio
-e conoscenza del tuo stile.
-</p>
+<div><div class="eyebrow">I nostri servizi</div><h2>Precisione.<br>Stile. Personalità.</h2></div>
+<p>Ogni servizio nasce dall'incontro tra tecnica, attenzione al dettaglio e conoscenza del tuo stile.</p>
 </div>
 
 <div class="service-grid">
-
-<div class="card">
-<div class="card-number">01</div>
-<h3>Taglio</h3>
-<p>Un taglio studiato sulle tue caratteristiche e rifinito con precisione.</p>
-<div class="price">€25</div>
-</div>
-
-<div class="card">
-<div class="card-number">02</div>
-<h3>Taglio + Barba</h3>
-<p>Il servizio completo per un look curato, armonioso e contemporaneo.</p>
-<div class="price">€35</div>
-</div>
-
-<div class="card">
-<div class="card-number">03</div>
-<h3>Barba</h3>
-<p>Definizione, rasatura e rifinitura per una barba sempre impeccabile.</p>
-<div class="price">€18</div>
-</div>
-
+<div class="card"><div class="card-num">01</div><h3>Taglio</h3><p>Un taglio studiato sulle tue caratteristiche e rifinito con precisione.</p><div class="price">€25</div></div>
+<div class="card"><div class="card-num">02</div><h3>Taglio + Barba</h3><p>Il servizio completo per un look curato, armonioso e contemporaneo.</p><div class="price">€35</div></div>
+<div class="card"><div class="card-num">03</div><h3>Barba</h3><p>Definizione, rasatura e rifinitura per una barba sempre impeccabile.</p><div class="price">€18</div></div>
 </div>
 </div>
 </section>
 
 <section id="chi-siamo">
-<div class="container about-grid">
-
-<div class="about-image">
-<img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=90" alt="Barber shop">
-</div>
-
+<div class="container about">
+<div class="about-art"></div>
 <div class="about-copy">
 <div class="eyebrow">Chi siamo</div>
 <h2>Non solo un taglio.<br>Un'esperienza.</h2>
-
-<p>
-Crediamo che un buon taglio non sia soltanto una questione di capelli.
-È il modo in cui esci dal barber shop e ti senti davanti allo specchio.
-Per questo curiamo ogni dettaglio, dal primo consiglio all'ultima rifinitura.
-</p>
-
+<p>Crediamo che un buon taglio non sia soltanto una questione di capelli. È il modo in cui esci dal barber shop e ti senti davanti allo specchio. Per questo curiamo ogni dettaglio.</p>
 <div class="values">
-<div class="value">
-<strong>Precisione</strong>
-<span>Ogni dettaglio conta.</span>
-</div>
-
-<div class="value">
-<strong>Personalizzazione</strong>
-<span>Il tuo stile, non uno standard.</span>
-</div>
-
-<div class="value">
-<strong>Qualità</strong>
-<span>Tecnica e prodotti selezionati.</span>
+<div class="value"><strong>Precisione</strong><span>Ogni dettaglio conta.</span></div>
+<div class="value"><strong>Personalizzazione</strong><span>Il tuo stile.</span></div>
+<div class="value"><strong>Qualità</strong><span>Tecnica e cura.</span></div>
 </div>
 </div>
-</div>
-
 </div>
 </section>
 
 <section id="galleria">
 <div class="container">
-
 <div class="section-head">
-<div>
-<div class="eyebrow">Galleria</div>
-<h2>Il nostro mondo.</h2>
-</div>
-
-<p>
-Un ambiente contemporaneo, dettagli curati e l'atmosfera
-di una barberia romana pensata per farti sentire a casa.
-</p>
+<div><div class="eyebrow">Galleria</div><h2>Il nostro mondo.</h2></div>
+<p>Un ambiente contemporaneo, dettagli curati e l'atmosfera di una barberia romana pensata per farti sentire a casa.</p>
 </div>
 
 <div class="gallerygrid">
-
-<div class="g g1">
-<img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=90" alt="Barber al lavoro">
-</div>
-
-<div class="g">
-<img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=90" alt="Taglio uomo">
-</div>
-
-<div class="g">
-<img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=90" alt="Barber tools">
-</div>
-
-<div class="g g4">
-<img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=90" alt="Barber shop">
-</div>
-
+<div class="g g1"><div class="gallery-art art-1"><span>BARBER</span><strong>ROME</strong><small>EST. 2016</small></div></div>
+<div class="g"><div class="gallery-art art-2"><span>PRECISION</span><strong>01</strong><small>THE DETAIL MATTERS</small></div></div>
+<div class="g"><div class="gallery-art art-3"><span>CRAFT</span><strong>02</strong><small>BUILT FOR YOUR STYLE</small></div></div>
+<div class="g g4"><div class="gallery-art art-4"><span>BARBER SHOP</span><strong>ROMA</strong><small>YOUR STYLE · OUR SIGNATURE</small></div></div>
 </div>
 </div>
 </section>
 
 <section class="reviews" id="recensioni">
 <div class="container">
-
 <div class="section-head">
-<div>
-<div class="eyebrow">Recensioni</div>
-<h2>Chi ci sceglie,<br>torna.</h2>
+<div><div class="eyebrow">Recensioni</div><h2>Chi ci sceglie,<br>torna.</h2></div>
 </div>
+<div class="review">
+<div class="quote">“Finalmente un taglio fatto davvero come lo volevo. Ambiente spettacolare e attenzione maniacale ai dettagli.”</div>
+<div class="name">— Marco · Cliente</div>
 </div>
-
-<div class="review-wrap">
-<div class="quote">
-“Finalmente un taglio fatto davvero come lo volevo.
-Ambiente spettacolare e attenzione maniacale ai dettagli.”
-</div>
-
-<div class="review-name">— Marco · Cliente</div>
-</div>
-
 </div>
 </section>
 
@@ -721,123 +322,68 @@ Ambiente spettacolare e attenzione maniacale ai dettagli.”
 <div class="container">
 <div class="eyebrow">Il prossimo appuntamento è tuo</div>
 <h2>Pronto a cambiare stile?</h2>
-<p>
-Prenota il tuo prossimo appuntamento e lascia che siano
-precisione e tecnica a fare la differenza.
-</p>
-<button class="btn btn-primary" onclick="openModal()">Prenota ora</button>
+<p>Prenota il tuo prossimo appuntamento e lascia che siano precisione e tecnica a fare la differenza.</p>
+<button class="btn gold" onclick="openModal()">Prenota ora</button>
 </div>
 </section>
 
 <section id="contatti">
 <div class="container">
-
 <div class="section-head">
-<div>
-<div class="eyebrow">Contatti</div>
-<h2>Passa a trovarci.</h2>
+<div><div class="eyebrow">Contatti</div><h2>Passa a trovarci.</h2></div>
+<p>Siamo nel cuore di Roma. Per informazioni o appuntamenti, contattaci direttamente.</p>
 </div>
 
-<p>
-Siamo nel cuore di Roma. Per informazioni o appuntamenti,
-contattaci direttamente.
-</p>
-</div>
-
-<div class="contact-grid">
-
+<div class="contact">
 <div class="contact-list">
-
-<div class="contact-item">
-<span>Indirizzo</span>
-<strong>Roma, Italia</strong>
-</div>
-
-<div class="contact-item">
-<span>Telefono</span>
-<strong>+39 06 0000 0000</strong>
-</div>
-
-<div class="contact-item">
-<span>Email</span>
-<strong>info@barbershoprome.it</strong>
-</div>
-
-<div class="contact-item">
-<span>Orari</span>
-<strong>Lun — Sab · 09:00 — 19:30</strong>
-</div>
-
+<div class="contact-item"><span>Indirizzo</span><strong>Roma, Italia</strong></div>
+<div class="contact-item"><span>Telefono</span><strong>+39 06 0000 0000</strong></div>
+<div class="contact-item"><span>Email</span><strong>info@barbershoprome.it</strong></div>
+<div class="contact-item"><span>Orari</span><strong>Lun — Sab · 09:00 — 19:30</strong></div>
 </div>
 
 <div class="map">
-<iframe
-src="https://www.google.com/maps?q=Roma%2C%20Italia&output=embed"
-loading="lazy">
-</iframe>
+<div><strong>BARBER ROME</strong><span>Roma · Italia<br>Posizione demo</span></div>
 </div>
-
 </div>
 </div>
 </section>
 
-</main>
-
 <footer>
-<div class="container footer-inner">
+<div class="container footer">
 <div>© 2026 Barber Shop Rome</div>
 <div>Il tuo stile. La nostra firma.</div>
 </div>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/390600000000" target="_blank" aria-label="WhatsApp">WA</a>
+<a class="whatsapp" href="https://wa.me/390600000000" target="_blank">WA</a>
 
-<div class="modal" id="bookingModal">
+<div class="modal" id="modal">
 <div class="modal-box">
-
 <button class="close" onclick="closeModal()">×</button>
-
 <div class="eyebrow">Prenotazione</div>
 <h3>Fissa il tuo appuntamento.</h3>
-
 <form onsubmit="book(event)">
-<input type="text" placeholder="Nome e cognome" required>
+<input placeholder="Nome e cognome" required>
 <input type="tel" placeholder="Numero di telefono" required>
-
 <select required>
 <option value="">Scegli il servizio</option>
 <option>Taglio — €25</option>
 <option>Taglio + Barba — €35</option>
 <option>Barba — €18</option>
 </select>
-
 <input type="date" required>
 <input type="time" required>
-
-<button class="btn btn-primary" type="submit">Richiedi appuntamento</button>
+<button class="btn gold" type="submit">Richiedi appuntamento</button>
 </form>
-
 </div>
 </div>
 
 <script>
-function openModal(){
-document.getElementById("bookingModal").classList.add("active");
-}
-
-function closeModal(){
-document.getElementById("bookingModal").classList.remove("active");
-}
-
-document.getElementById("bookingModal").addEventListener("click",function(e){
-if(e.target===this) closeModal();
-});
-
-function book(e){
-e.preventDefault();
-alert("Richiesta ricevuta! Nel sito reale questo modulo potrà essere collegato direttamente alla barberia.");
-closeModal();
-}
+function openModal(){document.getElementById("modal").classList.add("active")}
+function closeModal(){document.getElementById("modal").classList.remove("active")}
+document.getElementById("modal").onclick=function(e){if(e.target===this)closeModal()}
+function book(e){e.preventDefault();alert("Richiesta ricevuta! Nel sito reale questo modulo potrà essere collegato direttamente alla barberia.");closeModal()}
 </script>
 
 </body>
