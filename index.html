@@ -1,12 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Barber Shop Rome — Il tuo stile. La nostra firma.</title>
+<meta name="description" content="Barber Shop Rome — Taglio, barba e styling nel cuore di Roma.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0b0b0b;color:#f3eee5;font-family:Inter,Arial,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+:root{--bg:#0b0b0b;--panel:#141414;--cream:#f3eee5;--muted:#aaa39a;--gold:#c8a96a;--line:#292724}
+.container{width:min(1160px,92%);margin:auto}
+
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(11,11,11,.92);backdrop-filter:blur(12px);border-bottom:1px solid #222}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:600 30px "Cormorant Garamond",serif;letter-spacing:.04em}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:28px}
+nav a{font-size:12px;color:#d6d0c8}
+nav a:hover{color:var(--gold)}
+.navbtn,.btn{border:1px solid var(--gold);padding:13px 21px;background:transparent;color:var(--cream);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.navbtn{padding:10px 16px}
+.btn.gold{background:var(--gold);color:#111}
+.btn:hover{transform:translateY(-2px)}
+
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 position:relative;
 overflow:hidden;
-background:
-linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.18) 100%),
-url("https://images.pexels.com/photos/9992818/pexels-photo-9992818.jpeg?auto=compress&cs=tinysrgb&w=2000");
+background-image:
+linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.62) 42%,rgba(0,0,0,.2) 100%),
+url("https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&cs=tinysrgb&w=2000");
 background-size:cover;
 background-position:center;
 }
@@ -26,7 +57,6 @@ box-shadow:0 0 0 70px rgba(200,169,106,.025),0 0 0 140px rgba(200,169,106,.018);
 .hero-content{position:relative;z-index:2;padding-top:80px;max-width:760px}
 .kicker,.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
 .kicker{margin-bottom:20px}
-
 h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500}
 h1{font-size:clamp(60px,8vw,108px);line-height:.87;letter-spacing:-.04em;margin-bottom:30px}
 .hero p{max-width:560px;color:#bbb4aa;font-size:16px;margin-bottom:34px}
@@ -57,27 +87,21 @@ h2{font-size:clamp(43px,6vw,70px);line-height:.92}
 height:570px;
 position:relative;
 overflow:hidden;
-background:
-linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.45)),
+background-image:
+linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.48)),
 url("https://images.pexels.com/photos/7518728/pexels-photo-7518728.jpeg?auto=compress&cs=tinysrgb&w=1400");
 background-size:cover;
 background-position:center;
 }
-.about-art:before{
-content:"";
-position:absolute;
-width:280px;height:280px;
-border:1px solid rgba(200,169,106,.45);
-border-radius:50%;
-left:50%;top:50%;transform:translate(-50%,-50%);
-}
 .about-art:after{
 content:"BARBER ROME";
 position:absolute;
-left:35px;bottom:30px;
+left:35px;
+bottom:30px;
 font:500 25px "Cormorant Garamond",serif;
 letter-spacing:.1em;
 color:#eee6d8;
+text-shadow:0 2px 15px #000;
 }
 .about-copy p{color:var(--muted);margin:25px 0 32px;max-width:520px}
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
@@ -91,7 +115,6 @@ grid-template-columns:1.2fr .8fr;
 grid-template-rows:290px 290px;
 gap:12px;
 }
-
 .g{position:relative;overflow:hidden;background:#151515;border:1px solid #24211d}
 .g1{grid-row:span 2}
 .g4{grid-column:2}
@@ -105,74 +128,38 @@ justify-content:flex-end;
 padding:30px;
 overflow:hidden;
 transition:.5s;
+background-size:cover;
+background-position:center;
 }
-
 .gallery-art:before{
 content:"";
 position:absolute;
-width:280px;height:280px;
-border-radius:50%;
-border:1px solid rgba(200,169,106,.4);
-top:50%;left:50%;
-transform:translate(-50%,-50%);
-transition:.6s;
+inset:0;
+background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.75));
 }
-
-.gallery-art:after{
-content:"";
-position:absolute;
-width:120px;height:120px;
-border-radius:50%;
-background:rgba(200,169,106,.10);
-top:50%;left:50%;
-transform:translate(-50%,-50%);
-}
-
-.gallery-art:hover:before{transform:translate(-50%,-50%) scale(1.12)}
-.gallery-art:hover{transform:scale(1.015)}
-
-.art-1{
-background:
-linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.45)),
-url("https://images.pexels.com/photos/8218487/pexels-photo-8218487.jpeg?auto=compress&cs=tinysrgb&w=1400");
-background-size:cover;
-background-position:center;
-}
-
-.art-2{
-background:
-linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.4)),
-url("https://images.pexels.com/photos/35844836/pexels-photo-35844836.jpeg?auto=compress&cs=tinysrgb&w=1000");
-background-size:cover;
-background-position:center;
-}
-
-.art-3{
-background:
-linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.4)),
-url("https://images.pexels.com/photos/7697320/pexels-photo-7697320.jpeg?auto=compress&cs=tinysrgb&w=1000");
-background-size:cover;
-background-position:center;
-}
-
-.art-4{
-background:
-linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.4)),
-url("https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&w=1400");
-background-size:cover;
-background-position:center;
-}
-
+.gallery-art:hover{transform:scale(1.02)}
 .gallery-art span,.gallery-art strong,.gallery-art small{position:relative;z-index:2}
 .gallery-art span{font-size:10px;letter-spacing:.25em;color:var(--gold)}
 .gallery-art strong{font:500 48px "Cormorant Garamond",serif;line-height:1}
-.gallery-art small{font-size:9px;color:#aaa49a;letter-spacing:.12em;margin-top:7px}
+.gallery-art small{font-size:9px;color:#ddd;letter-spacing:.12em;margin-top:7px}
+
+.art-1{background-image:url("https://images.pexels.com/photos/8218487/pexels-photo-8218487.jpeg?auto=compress&cs=tinysrgb&w=1400")}
+.art-2{background-image:url("https://images.pexels.com/photos/7697320/pexels-photo-7697320.jpeg?auto=compress&cs=tinysrgb&w=1000")}
+.art-3{background-image:url("https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&w=1000")}
+.art-4{background-image:url("https://images.pexels.com/photos/35844836/pexels-photo-35844836.jpeg?auto=compress&cs=tinysrgb&w=1400")}
 
 .review{text-align:center;max-width:850px;margin:auto}
 .quote{font:italic 42px/1.12 "Cormorant Garamond",serif;margin-bottom:22px}
 .name{color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
 
-.cta{text-align:center;background:linear-gradient(135deg,#16130f,#0b0b0b)}
+.cta{
+text-align:center;
+background:
+linear-gradient(135deg,rgba(22,19,15,.92),rgba(11,11,11,.94)),
+url("https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1600");
+background-size:cover;
+background-position:center;
+}
 .cta h2{margin:15px 0 22px}
 .cta p{max-width:520px;margin:0 auto 28px;color:var(--muted);font-size:13px}
 
@@ -181,15 +168,44 @@ background-position:center;
 .contact-item{border-bottom:1px solid var(--line);padding-bottom:17px}
 .contact-item span{display:block;color:var(--gold);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px}
 .contact-item strong{font-size:13px;font-weight:500}
-.map{min-height:390px;border:1px solid var(--line);background:linear-gradient(135deg,#181818,#0d0d0d);display:flex;align-items:center;justify-content:center;text-align:center}
+
+.map{
+min-height:390px;
+border:1px solid var(--line);
+background:
+linear-gradient(rgba(12,12,12,.78),rgba(12,12,12,.88)),
+url("https://images.pexels.com/photos/1443878/pexels-photo-1443878.jpeg?auto=compress&cs=tinysrgb&w=1200");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
 .map div{padding:30px}
 .map strong{display:block;font:500 35px "Cormorant Garamond",serif;margin-bottom:7px}
-.map span{color:var(--muted);font-size:11px}
+.map span{color:#ccc;font-size:11px}
 
 footer{border-top:1px solid var(--line);padding:30px 0;color:#77716a;font-size:10px}
 .footer{display:flex;justify-content:space-between}
 
-.whatsapp{position:fixed;right:20px;bottom:20px;width:55px;height:55px;border-radius:50%;background:#25d366;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;z-index:30;box-shadow:0 10px 30px #0008}
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:#25d366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:12px;
+z-index:30;
+box-shadow:0 10px 30px #0008;
+}
 
 .modal{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
 .modal.active{display:flex}
@@ -209,7 +225,8 @@ section{padding:75px 0}
 .about-art{height:400px}
 .values{grid-template-columns:1fr}
 .gallerygrid{grid-template-columns:1fr;grid-template-rows:420px 240px 240px 240px}
-.g1{grid-row:auto}.g4{grid-column:auto}
+.g1{grid-row:auto}
+.g4{grid-column:auto}
 .quote{font-size:32px}
 .map{min-height:280px}
 .footer{flex-direction:column;gap:8px}
@@ -309,7 +326,7 @@ section{padding:75px 0}
 </div>
 <div class="review">
 <div class="quote">“Finalmente un taglio fatto davvero come lo volevo. Ambiente spettacolare e attenzione maniacale ai dettagli.”</div>
-<div class="name">— Marco · Cliente</div>
+<div class="name">— Marco · Recensione demo</div>
 </div>
 </div>
 </section>
@@ -376,10 +393,20 @@ section{padding:75px 0}
 </div>
 
 <script>
-function openModal(){document.getElementById("modal").classList.add("active")}
-function closeModal(){document.getElementById("modal").classList.remove("active")}
-document.getElementById("modal").onclick=function(e){if(e.target===this)closeModal()}
-function book(e){e.preventDefault();alert("Richiesta ricevuta! Nel sito reale questo modulo potrà essere collegato direttamente alla barberia.");closeModal()}
+function openModal(){
+document.getElementById("modal").classList.add("active");
+}
+function closeModal(){
+document.getElementById("modal").classList.remove("active");
+}
+document.getElementById("modal").onclick=function(e){
+if(e.target===this)closeModal();
+}
+function book(e){
+e.preventDefault();
+alert("Richiesta ricevuta! Nel sito reale questo modulo potrà essere collegato direttamente alla barberia.");
+closeModal();
+}
 </script>
 
 </body>
