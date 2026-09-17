@@ -146,10 +146,37 @@ background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.75));
 .art-1{background-image:url("https://images.pexels.com/photos/8218487/pexels-photo-8218487.jpeg?auto=compress&cs=tinysrgb&w=1400")}
 .art-2{background-image:url("https://images.pexels.com/photos/7697320/pexels-photo-7697320.jpeg?auto=compress&cs=tinysrgb&w=1000")}
 .art-3{background-image:url("https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&w=1000")}
-.art-4{background-image:url("https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1400")}
-.review{text-align:center;max-width:850px;margin:auto}
-.quote{font:italic 42px/1.12 "Cormorant Garamond",serif;margin-bottom:22px}
+.art-4{background-image:url("https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&cs=tinysrgb&w=1400")}
+
+.review-wrap{max-width:900px;margin:auto;position:relative}
+.review-card{
+display:none;
+text-align:center;
+animation:fadeReview .45s ease;
+}
+.review-card.active{display:block}
+@keyframes fadeReview{
+from{opacity:0;transform:translateY(8px)}
+to{opacity:1;transform:translateY(0)}
+}
+.quote{font:italic 38px/1.15 "Cormorant Garamond",serif;margin-bottom:22px}
 .name{color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.review-controls{
+display:flex;
+justify-content:center;
+gap:8px;
+margin-top:30px;
+}
+.review-dot{
+width:7px;
+height:7px;
+border-radius:50%;
+border:1px solid var(--gold);
+background:transparent;
+cursor:pointer;
+padding:0;
+}
+.review-dot.active{background:var(--gold)}
 
 .cta{
 text-align:center;
@@ -323,9 +350,30 @@ section{padding:75px 0}
 <div class="section-head">
 <div><div class="eyebrow">Recensioni</div><h2>Chi ci sceglie,<br>torna.</h2></div>
 </div>
-<div class="review">
+
+<div class="review-wrap">
+
+<div class="review-card active">
 <div class="quote">“Finalmente un taglio fatto davvero come lo volevo. Ambiente spettacolare e attenzione maniacale ai dettagli.”</div>
 <div class="name">— Marco · Recensione demo</div>
+</div>
+
+<div class="review-card">
+<div class="quote">“Servizio preciso, atmosfera elegante e un risultato che mi ha convinto subito. Ci tornerò sicuramente.”</div>
+<div class="name">— Andrea · Recensione demo</div>
+</div>
+
+<div class="review-card">
+<div class="quote">“Una barberia curata in ogni dettaglio. Taglio impeccabile e grande attenzione alle richieste del cliente.”</div>
+<div class="name">— Luca · Recensione demo</div>
+</div>
+
+<div class="review-controls">
+<button class="review-dot active" onclick="showReview(0)" aria-label="Recensione 1"></button>
+<button class="review-dot" onclick="showReview(1)" aria-label="Recensione 2"></button>
+<button class="review-dot" onclick="showReview(2)" aria-label="Recensione 3"></button>
+</div>
+
 </div>
 </div>
 </section>
@@ -395,17 +443,42 @@ section{padding:75px 0}
 function openModal(){
 document.getElementById("modal").classList.add("active");
 }
+
 function closeModal(){
 document.getElementById("modal").classList.remove("active");
 }
+
 document.getElementById("modal").onclick=function(e){
 if(e.target===this)closeModal();
 }
+
 function book(e){
 e.preventDefault();
 alert("Richiesta ricevuta! Nel sito reale questo modulo potrà essere collegato direttamente alla barberia.");
 closeModal();
 }
+
+let currentReview=0;
+
+function showReview(index){
+const reviews=document.querySelectorAll(".review-card");
+const dots=document.querySelectorAll(".review-dot");
+
+reviews.forEach((review,i)=>{
+review.classList.toggle("active",i===index);
+});
+
+dots.forEach((dot,i)=>{
+dot.classList.toggle("active",i===index);
+});
+
+currentReview=index;
+}
+
+setInterval(function(){
+currentReview=(currentReview+1)%3;
+showReview(currentReview);
+},5000);
 </script>
 
 </body>
